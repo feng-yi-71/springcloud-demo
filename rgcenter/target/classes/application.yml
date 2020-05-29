@@ -1,0 +1,37 @@
+#------ spring ���� ------
+spring:
+  application:
+    name: eureka-server
+  profiles: eureka-server1
+
+#------ web ���� ------
+server:
+  port: 8000
+
+#------ ע���������� ------
+eureka:
+  instance:
+    hostname: eureka-server1
+  client:
+    service-url:
+      defaultZone: http://eureka-server2:8001/eureka/
+
+---
+
+#------ spring ���� ------
+spring:
+  application:
+    name: eureka-server
+  profiles: eureka-server2
+
+#------ web ���� ------
+server:
+  port: 8001
+
+#------ ע���������� ------
+eureka:
+  instance:
+    hostname: eureka-server2
+  client:
+    service-url:
+      defaultZone: http://eureka-server1:8000/eureka/
